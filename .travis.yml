@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - '9'
+script:
+  - jest middleware.test.js
+  - jest router.test.js
+  - jest supergoose.js
