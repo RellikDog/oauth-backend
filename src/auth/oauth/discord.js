@@ -3,7 +3,7 @@
 const superagent = require('superagent');
 const Users = require('../users-model.js');
 
-const API = 'http://localhost:3000';
+const API = 'https://sihonoauth.herokuapp.com/' ;
 const GTS = 'https://discordapp.com/api/oauth2/token';
 const SERVICE = 'https://discordapp.com/api/users/@me';
 
