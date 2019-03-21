@@ -9,7 +9,13 @@ const SERVICE = 'https://discordapp.com/api/users/@me';
 
 let authorize = (request) => {
   
-  console.log('(1)', request.query.code);
+  console.log('(1)', {
+    code: request.query.code,
+    client_id: process.env.GOOGLE_CLIENT_ID,
+    client_secret: process.env.GOOGLE_CLIENT_SECRET,
+    redirect_uri: `${API}/oauth`,
+    grant_type: 'authorization_code',
+  }, request.query.code);
   return superagent.post(GTS)
     .type('form')
     .send({
