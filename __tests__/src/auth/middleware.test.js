@@ -3,7 +3,6 @@
 const supergoose = require('../../supergoose.js');
 const auth = require('../../../src/auth/middleware.js');
 const Users = require('../../../src/auth/users-model.js');
-const authorize = require('../../../src/auth/oauth/discord.js');
 
 let users = {
   admin: {username: 'admin', password: 'password', role: 'admin'},
@@ -68,8 +67,6 @@ describe('Auth Middleware', () => {
         });
 
     });
-
-    it('')
   });
 
 });

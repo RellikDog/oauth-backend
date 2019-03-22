@@ -11,7 +11,7 @@ const oauth = require('./oauth/discord.js');
 
 authRouter.post('/signup', (req, res, next) => {
   let user = new User(req.body);
-  user.save()
+  return user.save()
     .then( (user) => {
       req.token = user.generateToken();
       req.user = user;

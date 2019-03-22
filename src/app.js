@@ -23,8 +23,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 // Routes
-app.use(oauth);
 app.use(authRouter);
+app.use(oauth);
 
 // Catchalls
 app.use(notFound);
