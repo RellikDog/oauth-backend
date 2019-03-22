@@ -2,17 +2,17 @@
 
 process.env.STORAGE = 'mongo';
 
-const jwt = require('jsonwebtoken');
+const server   = require('../../../src/app.js').server;
 
-const server = require('../../../src/app.js').server;
 const supergoose = require('../../supergoose.js');
+const jwt = require('jsonwebtoken');
 
 const mockRequest = supergoose.server(server);
 
 let users = {
   admin: {username: 'admin', password: 'password', role: 'admin'},
-  editor: {username: 'editor', password: 'password', role: 'editor'},
-  user: {username: 'user', password: 'password', role: 'user'},
+  // editor: {username: 'editor', password: 'password', role: 'editor'},
+  // user: {username: 'user', password: 'password', role: 'user'},
 };
 
 beforeAll(supergoose.startDB);
@@ -37,7 +37,7 @@ describe('Auth Router', () => {
             encodedToken = results.text;
             expect(token.id).toBeDefined();
             expect(token.capabilities).toBeDefined();
-          });
+          }).catch(console.error);
       });
 
       it('can signin with basic', () => {
